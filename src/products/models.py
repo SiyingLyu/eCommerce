@@ -1,6 +1,7 @@
 import os
 import random
 from django.db import models
+from django.db.models import Q
 from django.db.models.signals import pre_save, post_save
 from .utils import unique_slug_generator
 from django.urls import reverse
@@ -23,6 +24,14 @@ class ProductQuerySet(models.query.QuerySet):
 		return self.filter(active=True)
 	def featured(self):
 		return self.filter(featured=True, active=True)
+	def search(self, query):
+
+		lookups = (Q(title__icontains=query) | 
+			Q(description__icontains=query) | 
+			Q(price__icontains=query) |
+			Q(tag__title__icontains=query))
+		
+		return self.filter(lookups).distinct()
 
 class ProductManager(models.Manager):
 	def get_queryset(self):
@@ -39,6 +48,8 @@ class ProductManager(models.Manager):
 		if qs.count()==1:
 			return qs.first() # get the obje ct
 		return None
+	def search(self, query):
+		return self.get_queryset().active().search(query)
 
 # Create your models here.
 class Product(models.Model):

@@ -7,6 +7,7 @@ from django.contrib.auth import authenticate, login, get_user_model
 
 
 def home_page(request):
+	# print(request.session.get('first_name', 'Unknow'),)
 	context = {
 		"title" : "Hello World",
 		"content" : "Welcome to the homepage!",
