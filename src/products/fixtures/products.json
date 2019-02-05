@@ -1,0 +1,58 @@
+[
+{
+    "model": "products.product",
+    "pk": 1,
+    "fields": {
+        "title": "T-shirt",
+        "slug": "t-shirt",
+        "description": "This is a good shirt",
+        "price": "39.99",
+        "image": "",
+        "featured": false,
+        "active": true,
+        "timestamp": "2019-01-25T06:50:59.368Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 3,
+    "fields": {
+        "title": "Hat",
+        "slug": "hat",
+        "description": "good one",
+        "price": "39.99",
+        "image": "products/37283/37283.jpg",
+        "featured": false,
+        "active": true,
+        "timestamp": "2019-01-25T06:50:59.368Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 4,
+    "fields": {
+        "title": "supercomputer",
+        "slug": "supercomputer",
+        "description": "hahahah",
+        "price": "99.99",
+        "image": "",
+        "featured": true,
+        "active": true,
+        "timestamp": "2019-01-25T06:50:59.368Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 5,
+    "fields": {
+        "title": "t-shirt",
+        "slug": "t-shirt-2ptd",
+        "description": "The numbers come after the Consumer Electronics Show in Las Vegas, where auto makers display cool new tech. And they follow the Detroit auto show, when many companies give full-year guidance. Even Tesla \u2019s (ticker: TSLA) earnings shouldn\u2019t be a surprise for investors: It already announced fourth-quarter deliveries (and a round of layoffs).\r\n\r\nStill, there are big changes afoot in the car business. Investors should tune into the sector this earnings season to learn more.\r\n\r\nFord Motor (F) kicked off the season on Wednesday. Its fourth-quarter operating earnings missing analyst estimates, although earnings guidance for 2019 appears to be in-line with Wall Street expectations.\r\n\r\nFord reported its first quarterly loss in two years, due to marking its pension assets to market. (Any company that switched its pension accounting from a smoothed \u201ccorridor\u201d method to a \u201cmark-to-market\u201d approach will have the same problem. Ford\u2019s U.S. pension plans lost 3.7% in 2018.)",
+        "price": "39.99",
+        "image": "",
+        "featured": false,
+        "active": true,
+        "timestamp": "2019-01-25T06:50:59.368Z"
+    }
+}
+]
