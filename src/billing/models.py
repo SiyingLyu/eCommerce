@@ -1,10 +1,14 @@
 from django.db import models
-from django.db.models.signals import post_save
+from django.db.models.signals import post_save, pre_save
 from django.conf import settings
 
 from accounts.models import GuestEmail
-
 User = settings.AUTH_USER_MODEL
+
+import stripe
+stripe.api_key="sk_test_7o3qlp2H5a7jpo1e8XpqwbGJ"
+
+
 
 class BillingProfileManager(models.Manager):
 	def new_or_get(self, request):
@@ -29,17 +33,24 @@ class BillingProfile(models.Model):
     active      = models.BooleanField(default=True)
     update      = models.DateTimeField(auto_now_add=True)
     timestamp   = models.DateTimeField(auto_now_add=True)
+    customer_id = models.CharField(max_length=120, blank=True, null=True)
 
     objects = BillingProfileManager()
 
     def __str__(self):
         return self.email
 
-# def billing_profile_created_receiver(sender, instance, created, *args, **kwargs):
-#     if created:
-#         print("Send to stripe/braintree")
-#         instance.customer_id = newID
-#         instance.save()
+def billing_profile_created_receiver(sender, instance, *args, **kwargs):
+    if not instance.customer_id and instance.email:
+        print("Send to stripe/braintree")
+        customer = stripe.Customer.create(
+        		email = instance.email
+        	)
+        print(customer)
+       	instance.customer_id = customer.id
+        instance.save()
+
+pre_save.connect(billing_profile_created_receiver, sender=BillingProfile)
 
 def user_created_receiver(sender, instance, created, *args, **kwargs):
     if created and instance.email:
