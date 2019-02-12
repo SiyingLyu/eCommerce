@@ -47,12 +47,20 @@ INSTALLED_APPS = [
     'orders',
     'search',
     'tags',
-    'carts'
+    'carts',
+    'marketing'
 ]
 
 AUTH_USER_MODEL='accounts.User'
 FORCE_SESSION_TO_ONE = False
 FORCE_INACTIVE_USER_ENDSESSION = False
+
+MAILCHIMP_API_KEY = "6d7850090ab57c5c73a8d6fb47195abe-us20"
+MAILCHIMP_DATA_CENTER = "us20"
+MAILCHIMP_EMAIL_LIST_ID = "93f7a31313"
+
+STRIPE_PUB_KEY = "pk_test_0z5txCSLOwBLev347B8Dn2Qe" # front-end
+STRIPE_SECRET_KEY ="sk_test_7o3qlp2H5a7jpo1e8XpqwbGJ" # back-end
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
