@@ -1,7 +1,6 @@
 .DS_STORE
 *.sublime-project
 fasttracktojquery/
-requirements/
 
 # Virtualenv related
 bin/
