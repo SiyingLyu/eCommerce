@@ -184,26 +184,3 @@ $(document).ready(function(){
 
 
 })
-
-            i --
-          })
-          
-          cartBody.find(".cart-subtotal").text(data.subtotal)
-          cartBody.find(".cart-total").text(data.total)
-        } else {
-          window.location.href = currentUrl
-        }
-        
-      },
-      error: function(errorData) {
-        $.alert({
-          title: "Oops",
-          content: "An error occured",
-          theme: "modern"
-        })
-        console.log("error")
-        console.log(errorData)
-      }
-    })
-  }
-})
